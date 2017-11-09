@@ -13,4 +13,8 @@ class Article extends Model
         'published_at'
     ];
 
+    public function author()
+    {
+        return $this->belongsTo('App\User','user_id','id');
+    }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Article;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -31,6 +32,7 @@ class HomeController extends Controller
     }
     public function manage()
     {
-        return view('admin.manage');
+        $articles = \Auth::user()->articles()->get();
+        return view('admin.manage', compact('articles'));
     }
 }

@@ -18,11 +18,9 @@
     </title>
 
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic" rel="stylesheet">
-
-    <link href="../css/admin/toolkit-light.css" rel="stylesheet">
-
-
-    <link href="../css/admin/application.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link href="{{url('css/admin/toolkit-light.css')}}" rel="stylesheet">
+    <link href="{{url('css/admin/application.css')}}" rel="stylesheet">
 
     <style>
         /* note: this is a hack for ios iframe for bootstrap themes shopify page */
@@ -60,7 +58,7 @@
                     <ul class="nav lq nav-stacked st">
                         <li class="asv">Dashboards</li>
                         <li class="lp">
-                            <a class="ln active" href="#">Overview</a>
+                            <a class="ln active" href="{{route('home')}}">Overview</a>
                         </li>
                         <li class="lp">
                             <a class="ln " href="{{route('write')}}">Write</a>
@@ -105,11 +103,12 @@
 
 {{--<script src="../assets/js/jquery.min.js"></script>--}}
 <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src="../js/admin/popper.min.js"></script>
-<script src="../js/admin/chart.js"></script>
-<script src="../js/admin/tablesorter.min.js"></script>
-<script src="../js/admin/toolkit.js"></script>
-<script src="../js/admin/application.js"></script>
+<script src="http://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="{{url('js/admin/popper.min.js')}}"></script>
+<script src="{{url('js/admin/chart.js')}}"></script>
+<script src="{{url('js/admin/tablesorter.min.js')}}"></script>
+<script src="{{url('js/admin/toolkit.js')}}"></script>
+<script src="{{url('js/admin/application.js')}}"></script>
 <script>
     // execute/clear BS loaders for docs
     $(function(){while(window.BS&&window.BS.loader&&window.BS.loader.length){(window.BS.loader.pop())()}})

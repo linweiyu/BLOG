@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller
@@ -14,6 +13,7 @@ class ArticleController extends Controller
     public function index()
     {
         //
+        return "index";
     }
 
     /**
@@ -24,6 +24,7 @@ class ArticleController extends Controller
     public function create()
     {
         //
+        return view('admin.write');
     }
 
     /**
@@ -35,6 +36,8 @@ class ArticleController extends Controller
     public function store(Request $request)
     {
         //
+        $article = \Auth::user()->articles()->create($request->all());
+        return view('admin.overview');
     }
 
     /**
@@ -46,6 +49,8 @@ class ArticleController extends Controller
     public function show($id)
     {
         //
+        $article = \App\Article::find($id);
+        return view('admin.show',compact('article','article'));
     }
 
     /**
@@ -57,6 +62,8 @@ class ArticleController extends Controller
     public function edit($id)
     {
         //
+        $article = \App\Article::find($id);
+        return view('admin.edit',compact('article','article'));
     }
 
     /**
@@ -69,6 +76,7 @@ class ArticleController extends Controller
     public function update(Request $request, $id)
     {
         //
+
     }
 
     /**
@@ -80,5 +88,10 @@ class ArticleController extends Controller
     public function destroy($id)
     {
         //
+        $article = \App\Article::find($id);
+        if(\Auth::user()->id != $article->author->id)
+            return redirect()->guest('login');
+        $article->delete();
+        return redirect('admin/manage');
     }
 }
