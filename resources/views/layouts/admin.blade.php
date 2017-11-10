@@ -16,7 +16,7 @@
         Soldo &middot; linweiyu &middot; YOLO
 
     </title>
-
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
     <link href="{{url('css/admin/toolkit-light.css')}}" rel="stylesheet">
@@ -109,6 +109,7 @@
 <script src="{{url('js/admin/tablesorter.min.js')}}"></script>
 <script src="{{url('js/admin/toolkit.js')}}"></script>
 <script src="{{url('js/admin/application.js')}}"></script>
+@yield('footer')
 <script>
     // execute/clear BS loaders for docs
     $(function(){while(window.BS&&window.BS.loader&&window.BS.loader.length){(window.BS.loader.pop())()}})

@@ -170,6 +170,7 @@ return [
 
         Collective\Html\HtmlServiceProvider::class,
         Overtrue\LaravelUEditor\UEditorServiceProvider::class,
+        Overtrue\LaravelFilesystem\Qiniu\QiniuStorageServiceProvider::class,
 
         /*
          * Application Service Providers...

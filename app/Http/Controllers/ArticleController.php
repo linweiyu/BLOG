@@ -13,7 +13,9 @@ class ArticleController extends Controller
     public function index()
     {
         //
-        return "index";
+        $articles=\App\Article::latest()->published()->paginate(8);
+
+        return view('front.index',compact('articles','articles'));
     }
 
     /**
@@ -24,7 +26,8 @@ class ArticleController extends Controller
     public function create()
     {
         //
-        return view('admin.write');
+        $tags=\App\Tag::all()->pluck('name','id');
+        return view('admin.write',compact('tags','tags'));
     }
 
     /**
@@ -37,6 +40,7 @@ class ArticleController extends Controller
     {
         //
         $article = \Auth::user()->articles()->create($request->all());
+        $article->tags()->attach($request->input('tag_list'));
         return view('admin.overview');
     }
 
@@ -50,7 +54,7 @@ class ArticleController extends Controller
     {
         //
         $article = \App\Article::find($id);
-        return view('admin.show',compact('article','article'));
+        return view('front.show',compact('article','article'));
     }
 
     /**
@@ -62,8 +66,9 @@ class ArticleController extends Controller
     public function edit($id)
     {
         //
+        $tags=\App\Tag::all()->pluck('name','id');
         $article = \App\Article::find($id);
-        return view('admin.edit',compact('article','article'));
+        return view('admin.edit',['article'=>$article,'tags'=>$tags]);
     }
 
     /**
@@ -76,7 +81,10 @@ class ArticleController extends Controller
     public function update(Request $request, $id)
     {
         //
-
+        $article=\App\Article::findorfail($id);
+        $article->update($request->all());
+        $article->tags()->sync($request->input('tag_list'));
+        return redirect('articles/'.$article->id);
     }
 
     /**

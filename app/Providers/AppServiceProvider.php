@@ -3,7 +3,8 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\View;
+
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -15,6 +16,11 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         //
+
+        $latestArticle=\App\Article::latest()->published()->get()->take(3);
+        $tags=\App\Tag::all();
+        View::share('tags',$tags);
+        View::share('latestArticle',$latestArticle);
     }
 
     /**
