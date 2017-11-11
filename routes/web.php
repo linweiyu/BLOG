@@ -13,6 +13,7 @@
 
 Route::get('/', 'ArticleController@index');
 Route::get('/contact','HomeController@contact');
+Route::post('/contact','HomeController@communicate');
 Route::get('/about','HomeController@about');
 Auth::routes();
 

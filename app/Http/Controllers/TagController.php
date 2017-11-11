@@ -10,7 +10,6 @@ class TagController extends Controller
     public function show(\App\Tag $tag)
     {
         $articles=$tag->articles()->latest()->published()->paginate(6);
-        $isLogin=false;
-        return view('articles.index',compact('articles','isLogin'));
+        return view('front.index',compact('articles'));
     }
 }

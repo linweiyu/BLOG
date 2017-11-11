@@ -86,7 +86,7 @@
 
     <article class="post single-post">
         <div class="post-thumb">
-            <img src="{{url("assets/images/blog-1.jpg")}}" alt="">
+            <img src="{{url("assets/images/blog-".rand(1,12).".jpg")}}" alt="">
         </div>
         <div class="post-content">
             <div class="post-header">

@@ -20,7 +20,7 @@
                     {!! Form::open(['url'=>'contact','class'=>'form-horizontal','method'=>'post']) !!}
                     <div class="form-group">
                         <div class="col-md-12">
-                        <textarea class="form-control" name="content" rows="5"
+                        <textarea class="form-control" name="contact" rows="5"
                                   placeholder="Write your message"></textarea>
                         </div>
                     </div>

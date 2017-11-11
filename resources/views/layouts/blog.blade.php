@@ -29,7 +29,7 @@
                     <h3 class="widget-title text-uppercase">Latest Posts</h3>
                     @foreach($latestArticle as $article)
                         <div class="popular-post">
-                            <a href="#" class="popular-img"><img src="{{url("assets/images/blog-2.jpg")}}" alt="">
+                            <a href="{{url('/articles',$article->id)}}" class="popular-img"><img src="{{url("assets/images/blog-".($loop->index+3).".jpg")}}" alt="">
                                 <div class="p-overlay"></div>
                             </a>
                             <div class="p-content">

@@ -7,7 +7,7 @@
             <div class="media">
                 <div class="media-left">
                     <div class="post-thumb">
-                        <a href="{{url('/articles',$article->id)}}"><img src="{{url("assets/images/list-post-1.jpg")}}" alt=""></a>
+{{--                        <a href="{{url('/articles',$article->id)}}"><img src="{{url("assets/images/list-post-1.jpg")}}" alt=""></a>--}}
                         <a href="{{url('/articles',$article->id)}}" class="post-thumb-overlay text-center">
                             <div class="text-uppercase text-center"><i class="fa fa-search"></i></div>
                         </a>
